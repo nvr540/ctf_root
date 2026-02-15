@@ -64,3 +64,7 @@ curl
 
 apt -y install seclists
 
+echo "alias recon='/root/recon.sh'" >> ~/.zshrc
+echo "htb='openvpn /root/htbopenvpn.ovpn'" >> ~/.zshrc
+echo "revstable='subl /root/stablizer.txt'" >> ~/.zshrc
+
