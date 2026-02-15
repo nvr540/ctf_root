@@ -1,0 +1,12 @@
+# Ignore every folder (anything with a /)
+/*/
+
+# Ignore all hidden files/folders
+.*
+
+# EXCEPT these specific files
+!.gitignore
+!README.md
+!*.sh
+!*.txt
+!*.ovpn
