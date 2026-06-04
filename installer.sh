@@ -3,7 +3,7 @@
 
 echo "Use NON root user and sudo to run it"
 
-cd ~/Downaloads
+cd ~/Downloads
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg
 
 
@@ -50,6 +50,18 @@ echo "java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.bas
 chmod +x burpsuitepro
 cp burpsuitepro /bin/burpsuitepro
 
+#Installing username-anarchy
+git clone https://github.com/urbanadventurer/username-anarchy.git
+cd username-anarchy
+chmod +x username-anarchy
+
+#Installing kerbrute
+cd ~
+git clone https://github.com/ropnop/kerbrute.git
+sudo apt update && sudo apt install golang-go
+cd kerbrute && make all
+mv dist/kerbrute_linux_amd64 /usr/bin/kerbrute
+
 #for the recon.sh
 sudo apt update && sudo apt install -y \
 nmap \
@@ -62,9 +74,23 @@ tmux \
 jq \
 curl
 
+#ReconSpider
+cd /root
+git clone https://github.com/bhavsec/reconspider.git
+chmod +x /root/reconspider/ReconSpider.py
+
 apt -y install seclists
 
 echo "alias recon='/root/recon.sh'" >> ~/.zshrc
 echo "htb='openvpn /root/htbopenvpn.ovpn'" >> ~/.zshrc
 echo "revstable='subl /root/stablizer.txt'" >> ~/.zshrc
 
+#pip module install
+cd ~ && python3 -m venv venv
+source ~/venv/bin/activate
+pip3 install -r requirements.txt
+
+#LaZagne.exe install
+
+wget https://github.com/AlessandroZ/LaZagne/releases/download/v2.4.7/LaZagne.exe
+mv LaZagne.exe /opt/microsoft/

@@ -2,7 +2,7 @@
 /*/
 
 # Ignore all hidden files/folders
-.*
+#.*
 
 # EXCEPT these specific files
 !.gitignore
