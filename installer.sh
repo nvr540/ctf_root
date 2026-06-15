@@ -94,3 +94,8 @@ pip3 install -r requirements.txt
 
 wget https://github.com/AlessandroZ/LaZagne/releases/download/v2.4.7/LaZagne.exe
 mv LaZagne.exe /opt/microsoft/
+
+#installing LFI wordlist
+cd /opt
+wget https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-Linux
+wget https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-Windows
